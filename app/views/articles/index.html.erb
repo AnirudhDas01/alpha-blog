@@ -97,7 +97,8 @@
                     <td class="actions">
                         <%= link_to 'Show', article_path(article) %>
                         <%= link_to 'Edit', edit_article_path(article) %>
-                        <%= link_to 'Delete', article_path(article), data: { confirm: "Are you sure.?", turbo_method: :delete}, class: "delete" %>
+                        <%= link_to 'Delete', article_path(article), data: { turbo_confirm: "Are you sure.?", 
+                        turbo_method: :delete}, class: "delete" %>
                     </td>
                 </tr>
             <% end %>
