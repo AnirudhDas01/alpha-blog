@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
- 
+
   before_action :get_id, only: [:show, :edit, :update , :destroy]
 
 def show
@@ -16,6 +16,7 @@ end
   def create
 
       @article = Article.new(article_params)
+      @article.user = User.first
       if @article.save
         flash[:notice] = "Article is Created sucessfully"
         redirect_to @article
@@ -27,8 +28,8 @@ def edit
 
 end
 
-def update 
- 
+def update
+
   if @article.update(article_params)
       redirect_to @article
       flash[:notice] = "Updated Successsfully"
@@ -44,7 +45,7 @@ def destroy
 
 end
 
-private 
+private
   def article_params
     params.require(:article).permit(:title, :description)
   end
