@@ -1,36 +1,32 @@
 <div class = "container">
-  <div class ="container bg-info p-4 rounded shadow">
-      <% if @article.errors.any? %>
-        <h3>The following error(s) have occurred:</h3>
-        <ul>
-          <% @article.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-          <% end %>
-        </ul>
-      <% end %>
-
-      <%= form_with(model: @article, local: true) do |f| %>
-
-      <div class= "form-group row font-weight-bold">
-          <%= f.label :title ,class: "col-2 col-form-label text-light"%>
-
-          <div class="col-10">
-          <%= f.text_field :title , class: "form-control shadow" , placeholder: "Title" %>
-          </div>
-      </div>
-      </br>
-      <div class= "form-group row font-weight-bold ">
-          <%= f.label :description ,class: "col-2 col-form-label text-light"%>
-
-          <div class="col-10">
-          <%= f.text_area :description , rows: 10 ,class: "form-control shadow", placeholder: "Description" %>
-          </div>
-      </div>
-      </br>
-      <div class="form-group row justify-content-center mt-4">
-        <%= f.submit class: "btn btn-outline-light btn-lg custom-btn" %>
-      </div>
-      <% end %>
-      <td><%= link_to 'return to the list', articles_path , class:"contaniner bg-white p-1 rounded text-decoration-none" %></td>
+        <% if @article.errors.any? %>
+          <h3>The following error(s) have occurred:</h3>
+          <ul>
+            <% @article.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        <% end %>
+    <div class ="container bg-info p-4 rounded shadow">
+              <%= form_with(model: @article, local: true) do |f| %>
+                <div class= "form-group row font-weight-bold">
+                    <%= f.label :title ,class: "col-2 col-form-label text-light"%>
+                    <div class="col-10">
+                    <%= f.text_field :title , class: "form-control shadow" , placeholder: "Title" %>
+                    </div>
+                </div>
+                </br>
+                <div class= "form-group row font-weight-bold ">
+                    <%= f.label :description ,class: "col-2 col-form-label text-light"%>
+                    <div class="col-10">
+                    <%= f.text_area :description , rows: 10 ,class: "form-control shadow", placeholder: "Description" %>
+                    </div>
+                </div>
+                </br>
+                <div class="form-group row justify-content-center mt-4">
+                  <%= f.submit class: "btn btn-outline-light btn-lg custom-btn" %>
+                </div>
+            <% end %>
+          <td><%= link_to 'return to the list', articles_path , class:"contaniner bg-white p-1 rounded text-decoration-none" %></td>
     </div>
 </div>
