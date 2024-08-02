@@ -1,11 +1,11 @@
 class ArticlesController < ApplicationController
-<<<<<<< HEAD
+
 
   before_action :set_article, only: [:show, :edit, :update, :destroy]
 
   def show
-=======
- 
+
+
   before_action :get_id, only: [:show, :edit, :update , :destroy]
 
 def show
@@ -35,17 +35,17 @@ end
   end
 def edit
 <<<<<<< HEAD
-  
+
 end
 
-def update 
+def update
 
 =======
 
 end
 
-def update 
- 
+def update
+
 >>>>>>> udemy_follow_up
   if @article.update(article_params)
       redirect_to @article
@@ -73,14 +73,14 @@ end
 def article_params
   params.require(:article).permit(:title, :description)
 end
-  
+
 =======
   @article.destroy
   redirect_to articles_path
 
 end
 
-private 
+private
   def article_params
     params.require(:article).permit(:title, :description)
   end
