@@ -1,12 +1,5 @@
 <div class = "container">
-        <% if @article.errors.any? %>
-          <h3>The following error(s) have occurred:</h3>
-          <ul>
-            <% @article.errors.full_messages.each do |msg| %>
-              <li><%= msg %></li>
-            <% end %>
-          </ul>
-        <% end %>
+  <%= render 'shared/errors' %>
     <div class ="container bg-info p-4 rounded shadow">
               <%= form_with(model: @article, local: true) do |f| %>
                 <div class= "form-group row font-weight-bold">

@@ -2,6 +2,6 @@
 <p><Strong>Title: </Strong><%= @article.title %></p>
 <p><Strong>Description: </Strong><%= @article.description %></p>
 
-                     <td><%= link_to 'Go back', articles_path %></td>
+                <td><%= link_to 'Go back', articles_path %></td>
                 <td><%= link_to 'Edit', edit_article_path(@article) %></td>
                 <td><%= link_to 'Delete' , article_path(@article) ,data: {turbo_method: :delete , turbo_confirm: "Are you sure?"} %></td>
