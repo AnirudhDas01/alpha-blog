@@ -15,7 +15,7 @@ class UsersController < ApplicationController
    @user = User.new(user_params)
    if @user.save
     flash[:notice] = "Welcone ,#{@user.username.upcase} to the Alpha Blog"
-    redirect_to articles_path
+    redirect_to user_path(@user)
    else
     render 'new', status: :unprocessable_entity
    end
@@ -30,7 +30,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.update(user_params)
       flash[:notice] = "Account Sucessfully Updated"
-      redirect_to articles_path
+      redirect_to user_path(@user)
     else
       render 'new', status: :unprocessable_entity
     end

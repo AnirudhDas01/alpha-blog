@@ -4,22 +4,19 @@
         <div class=" container" >
             <div class="card text-center shadow mb-5 bg-white rounded">
             <div class="card-header">
-            <%= user.username %>
+                <%= link_to "#{user.username}", user_path(user), class: "link-primary link-underline-opacity-0 uppercase text-uppercase " %>
             </div>
             <div class="card-body">
-                <h5 class="card-title color-green"> <%= gravatar_for(user) %></h5>
-                <p class="card-text"><%= user.email  %></p>
+                <%= gravatar_for(user , size: 200) %>
                 <p class="text-uppercase font-weight-bold">Article: <%= user.articles.length %></p>
-            <%= link_to 'View Profile', user_path(user), class: "btn btn-outline-success" %>
-            <%= link_to 'Edit Profile', edit_user_path(user), class: "btn btn-outline-info" %>
-               
+                <%= link_to 'View Profile', user_path(user), class: "btn btn-outline-success" %>
+                <%= link_to 'Edit Profile', edit_user_path(user), class: "btn btn-outline-info" %>
             </div>
             <div class="card-footer text-muted">
-            <%= time_ago_in_words(user.created_at) %>
+            <small> Joined <%= time_ago_in_words(user.created_at) %> ago</small>
+                
             </div>
             </div>
         </div>
- 
-     
     <% end %>
 </div>
