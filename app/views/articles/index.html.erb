@@ -1,4 +1,11 @@
 <h1 class= "text-center">Alpha Articles</h1>
-<%= render 'articles' %>
 
-<%= link_to 'Create Article' ,  new_article_path %>
+
+<div class="flickr_pagination mb-4"> 
+    <%= will_paginate @articles, :container => false %>
+</div>
+
+
+
+
+<%= render 'articles' %>
