@@ -3,9 +3,6 @@
 <div class="flickr_pagination mb-4"> 
     <%= will_paginate @users, :container => false %>
 </div>
-
-
-
     <% @users.each do|user| %>
         <div class=" container" >
             <div class="card text-center shadow mb-5 bg-white rounded">
@@ -15,8 +12,10 @@
             <div class="card-body">
                 <%= gravatar_for(user , size: 200) %>
                 <p class="text-uppercase font-weight-bold">Article: <%= user.articles.length %></p>
-                <%= link_to 'View Profile', user_path(user), class: "btn btn-outline-success" %>
+                <% if logged_in? && user == current_user %>
                 <%= link_to 'Edit Profile', edit_user_path(user), class: "btn btn-outline-info" %>
+                <% end %>
+                <%= link_to 'View Profile', user_path(user), class: "btn btn-outline-success" %>
             </div>
             <div class="card-footer text-muted">
             <small> Joined <%= time_ago_in_words(user.created_at) %> ago</small>
