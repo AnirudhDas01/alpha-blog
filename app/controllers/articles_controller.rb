@@ -4,16 +4,16 @@ class ArticlesController < ApplicationController
   before_action :require_user, except: [:show, :index]
   before_action :require_same_user, only: [:edit, :update, :destroy ]
 
-def show
+  def show
 
-end
- def index
-  @articles = Article.paginate(page: params[:page], per_page: 5)
- end
+  end
+  def index
+    @articles = Article.paginate(page: params[:page], per_page: 5)
+  end
 
- def new
-  @article = Article.new
- end
+  def new
+    @article = Article.new
+  end
 
   def create
 
@@ -26,26 +26,27 @@ end
         render :new , status: :unprocessable_entity
       end
   end
-def edit
+  def edit
 
-end
-
-def update
-
-  if @article.update(article_params)
-      redirect_to @article
-      flash[:notice] = "Updated Successsfully"
-  else
-    render :new , status: :unprocessable_entity
   end
 
-end
+  def update
 
-def destroy
-  @article.destroy
-  redirect_to articles_path
+    if @article.update(article_params)
+        redirect_to @article
+        flash[:notice] = "Updated Successsfully"
+    else
+      render :new , status: :unprocessable_entity
+    end
 
-end
+  end
+
+  def destroy
+    @article.destroy
+
+    redirect_to articles_path
+
+  end
 
 private
   def article_params
@@ -57,7 +58,7 @@ private
   end
 
   def require_same_user
-    if current_user != @article.user
+    if current_user != @article.user  && !current_user.admin
       flash[:alert] = "You can only edit or deleted your own Article"
       redirect_to articles_path
     end
