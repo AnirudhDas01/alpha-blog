@@ -3,30 +3,29 @@
         <div class ="container bg-info p-4 rounded shadow">
             <%= form_with(model: @user, local: true) do |f| %>
                 <div class= "form-group row font-weight-bold">
-                    <%= f.label :username ,class: "col-2 col-form-label text-light"%>
-                    <div class="col-10">
-                    <%= f.text_field :username , class: "form-control shadow" , placeholder: "Username" %>
+                        <%= f.label :username ,class: "col-2 col-form-label text-light"%>
+                            <div class="col-10">
+                        <%= f.text_field :username , class: "form-control shadow" , placeholder: "Username" %>
                     </div>
                 </div>
-                </br>
+                    </br>
                 <div class= "form-group row font-weight-bold ">
                     <%= f.label :email ,class: "col-2 col-form-label text-light"%>
-                    <div class="col-10">
+                        <div class="col-10">
                     <%= f.email_field :email ,class: "form-control shadow", placeholder: "Email:" %>
                     </div>
                 </div>
                 </br>
                 <div class= "form-group row font-weight-bold ">
-                    <%= f.label :password ,class: "col-2 col-form-label text-light"%>
-                    <div class="col-10">
-                    <%= f.password_field :password ,class: "form-control shadow", placeholder: "Password" %>
+                        <%= f.label :password ,class: "col-2 col-form-label text-light"%>
+                            <div class="col-10">
+                        <%= f.password_field :password ,class: "form-control shadow", placeholder: "Password" %>
                     </div>
                 </div>
                 
                 <div class="form-group row justify-content-center mt-4">
-                <%= f.submit(@user.new_record? ? "Sign Up" : "Update Account", class: "btn btn-outline-light btn-lg custom-btn") %>
+                    <%= f.submit(@user.new_record? ? "Sign Up" : "Update Account", class: "btn btn-outline-light btn-lg custom-btn") %>
                 </div>
             <% end %>
-
     </div>
 </div>
