@@ -1,0 +1,11 @@
+<% if @category.errors.any? %>
+    <div class="alert alert-danger " role="alert">
+
+        <h3>The following error(s) have occurred:</h3>
+        <ul>
+            <% @category.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+        </ul>
+    </div>     
+<% end %>

@@ -1,0 +1,17 @@
+<h1 class= "text-center mt-4 display-6 ">Create a new category </h1>
+<div class = "container">
+    <%=  render 'errors' , status: :unprocessable_entity %>
+        <div class ="container bg-info p-4 rounded shadow">
+            <%= form_with(model: @category, local: true) do |f| %>
+                <div class= "form-group row font-weight-bold">
+                        <%= f.label :name, "Category Name",class: "col-2 col-form-label text-light"%>
+                            <div class="col-10">
+                        <%= f.text_field :name , class: "form-control shadow" , placeholder: "Enter a Category name" %>
+                    </div>
+                </div>
+                <div class="form-group row justify-content-center mt-4">
+                    <%= f.submit class: "btn btn-outline-light btn-lg custom-btn"%>
+                </div>
+            <% end %>
+    </div>
+</div>
