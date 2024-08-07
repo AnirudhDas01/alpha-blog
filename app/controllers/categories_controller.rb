@@ -1,5 +1,5 @@
 class CategoriesController  < ApplicationController
-   before_action :require_admin, only: [:new, :create, :update, :edit]
+  before_action :require_admin, only: [:new, :create, :update, :edit]
 
   def new
     @category = Category.new
