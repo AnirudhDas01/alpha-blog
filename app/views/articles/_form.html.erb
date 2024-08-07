@@ -12,10 +12,17 @@
                 <div class= "form-group row font-weight-bold ">
                     <%= f.label :description ,class: "col-2 col-form-label text-light"%>
                     <div class="col-10">
-                    <%= f.text_area :description , rows: 10 ,class: "form-control shadow", placeholder: "Description" %>
+                        <%= f.text_area :description , rows: 10 ,class: "form-control shadow", placeholder: "Description" %>
                     </div>
                 </div>
                 </br>
+                </br>
+                <div class= "form-group row font-weight-bold",style="overflow-y: auto;">
+                    <%= f.label :category ,class: "col-2 col-form-label text-light"%>
+                      <div class="col-sm-10">
+                        <%= f.collection_select(:category_ids, Category.all, :id, :name,{prompt: "Choose one or multiple categories(can also be empty)"}, {multiple: true, size: 3, class: "form-control custom-select shadow rounded" }) %>
+                      </div>
+                </div>
                 <div class="form-group row justify-content-center mt-4">
                   <%= f.submit class: "btn btn-outline-light btn-lg custom-btn" %>
                 </div>

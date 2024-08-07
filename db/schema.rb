@@ -12,10 +12,12 @@
 
 ActiveRecord::Schema[7.1].define(version: 2024_08_06_095126) do
   create_table "article_categories", force: :cascade do |t|
-    t.integer "article_id"
-    t.integer "category_id"
+    t.integer "article_id", null: false
+    t.integer "category_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["article_id"], name: "index_article_categories_on_article_id"
+    t.index ["category_id"], name: "index_article_categories_on_category_id"
   end
 
   create_table "articles", force: :cascade do |t|
@@ -41,4 +43,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_06_095126) do
     t.boolean "admin", default: false
   end
 
+  add_foreign_key "article_categories", "articles"
+  add_foreign_key "article_categories", "categories"
 end
